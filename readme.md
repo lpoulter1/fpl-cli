@@ -8,7 +8,7 @@
 go install github.com/lpoulter1/fpl-cli/cmd/fplcli@latest
 ```
 
-Because this is a private module, set `go env -w GOPRIVATE=github.com/lpoulter1/*` (and ensure your git credentials provide access) before running the command. The install places the `fpl` binary into your Go bin directory—make sure `$(go env GOPATH)/bin` is on your `PATH`.
+This pulls from the public GitHub repo and drops the `fpl` binary in your Go bin directory. Ensure `$(go env GOPATH)/bin` is on your `PATH`.
 
 ## Usage
 
