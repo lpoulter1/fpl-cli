@@ -5,10 +5,10 @@
 ## Installation
 
 ```bash
-go install github.com/lpoulter1/fpl-cli/cmd/fplcli@v0.0.1
+go install github.com/lpoulter1/fpl-cli/cmd/fpl@v0.0.2
 ```
 
-The tagged release guarantees the CLI entry point exists. The command drops the `fpl` binary in your Go bin directory—ensure `$(go env GOPATH)/bin` is on your `PATH`.
+The command installs the `fpl` binary into your Go bin directory—ensure `$(go env GOPATH)/bin` is on your `PATH`.
 
 ## Usage
 
@@ -53,8 +53,8 @@ Add `--json` to emit the same data structure in machine-friendly JSON (handy for
 go test ./...
 
 # local build / run
-go build ./cmd/fplcli
-./fplcli player --name "Haaland" --gw 1-3
+go build ./cmd/fpl
+./fpl player --name "Haaland" --gw 1-3
 ```
 
 The project targets the latest stable Go release. Continuous integration (see `.github/workflows/ci.yml`) mirrors the same `go test ./...` invocation to keep local and remote runs aligned.
