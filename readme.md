@@ -51,6 +51,10 @@ Add `--json` to emit the same data structure in machine-friendly JSON (handy for
 
 ```bash
 go test ./...
+
+# local build / run
+go build ./cmd/fplcli
+./fplcli player --name "Haaland" --gw 1-3
 ```
 
 The project targets the latest stable Go release. Continuous integration (see `.github/workflows/ci.yml`) mirrors the same `go test ./...` invocation to keep local and remote runs aligned.

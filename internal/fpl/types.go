@@ -23,6 +23,7 @@ type Element struct {
 	TotalPoints int    `json:"total_points"`
 	Form        string `json:"form"`
 	ICTIndex    string `json:"ict_index"`
+	News        string `json:"news"`
 }
 
 // Team describes a Premier League club.

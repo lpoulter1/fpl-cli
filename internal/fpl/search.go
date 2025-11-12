@@ -50,9 +50,20 @@ func FindPlayerByName(query string, elements []Element) (*Element, []MatchSugges
 	best := ranks[0]
 	bestElement := targetMap[best.Target]
 	suggestions := make([]MatchSuggestion, 0, min(5, len(ranks)))
-	for i := 0; i < len(ranks) && i < 5; i++ {
-		r := ranks[i]
+	seen := make(map[int]struct{}, len(ranks))
+	for _, r := range ranks {
+		if len(suggestions) == 5 {
+			break
+		}
 		el := targetMap[r.Target]
+		if el == nil {
+			continue
+		}
+		if _, dup := seen[el.ID]; dup {
+			continue
+		}
+		seen[el.ID] = struct{}{}
+
 		suggestions = append(suggestions, MatchSuggestion{
 			Element:  el,
 			Alias:    aliasFromKey(r.Target),

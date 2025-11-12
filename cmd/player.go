@@ -137,6 +137,7 @@ func buildPlayerReport(player *fpl.Element, bootstrap *fpl.BootstrapStatic, summ
 			ICTIndex:    player.ICTIndex,
 			SelectedBy:  player.SelectedBy,
 			TotalPoints: player.TotalPoints,
+			News:        player.News,
 		},
 		Gameweeks: rows,
 		Totals:    totals,
@@ -152,8 +153,9 @@ func printPlayerJSON(cmd *cobra.Command, report playerReport) error {
 
 func printPlayerTable(cmd *cobra.Command, report playerReport, suggestions []fpl.MatchSuggestion, requestedName string) error {
 	out := cmd.OutOrStdout()
-	fmt.Fprintf(out, "%s | %s | %s | £%.1f\n",
+	fmt.Fprintf(out, "%s (ID %d) | %s | %s | £%.1f\n",
 		report.Player.Name,
+		report.Player.ID,
 		report.Player.Team,
 		report.Player.Position,
 		report.Player.Cost,
@@ -164,6 +166,9 @@ func printPlayerTable(cmd *cobra.Command, report playerReport, suggestions []fpl
 		report.Player.SelectedBy,
 		report.Player.ICTIndex,
 	)
+	if strings.TrimSpace(report.Player.News) != "" {
+		fmt.Fprintf(out, "News: %s\n\n", report.Player.News)
+	}
 
 	tw := tabwriter.NewWriter(out, 0, 4, 2, ' ', 0)
 	fmt.Fprintln(tw, "GW\tOpponent\tMin\tG\tA\tCS\tPts")
@@ -326,6 +331,7 @@ type playerSummaryInfo struct {
 	ICTIndex    string  `json:"ict_index"`
 	SelectedBy  string  `json:"selected_by_percent"`
 	TotalPoints int     `json:"total_points"`
+	News        string  `json:"news"`
 }
 
 type historyRow struct {
