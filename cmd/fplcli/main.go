@@ -3,7 +3,7 @@ package main
 import (
 	"log"
 
-	"github.com/lpt10/fpl-cli/cmd"
+	"github.com/lpoulter1/fpl-cli/cmd"
 )
 
 func main() {

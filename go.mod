@@ -1,4 +1,4 @@
-module github.com/lpt10/fpl-cli
+module github.com/lpoulter1/fpl-cli
 
 go 1.23.12
 

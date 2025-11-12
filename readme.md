@@ -5,10 +5,10 @@
 ## Installation
 
 ```bash
-go install github.com/lpt10/fpl-cli/cmd/fplcli@latest
+go install github.com/lpoulter1/fpl-cli/cmd/fplcli@latest
 ```
 
-This installs the `fpl` binary into your Go bin directory (ensure `$(go env GOPATH)/bin` is on your `PATH`).
+Because this is a private module, set `go env -w GOPRIVATE=github.com/lpoulter1/*` (and ensure your git credentials provide access) before running the command. The install places the `fpl` binary into your Go bin directory—make sure `$(go env GOPATH)/bin` is on your `PATH`.
 
 ## Usage
 

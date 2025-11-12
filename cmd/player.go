@@ -9,7 +9,7 @@ import (
 	"strings"
 	"text/tabwriter"
 
-	"github.com/lpt10/fpl-cli/internal/fpl"
+	"github.com/lpoulter1/fpl-cli/internal/fpl"
 	"github.com/spf13/cobra"
 )
 
